@@ -30,7 +30,7 @@ pipeline{
                          sh '''
                         
                         pwd
-                        git_repo="https://github.com/core-usi/petclinicApp.git"
+                        git_repo="https://github.com/core-usi/microservice-kubernetes.git"
                         git clone $git_repo
                        
                                        
