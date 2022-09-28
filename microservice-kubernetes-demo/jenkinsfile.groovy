@@ -55,7 +55,7 @@ pipeline{
          stage(' Maven Clean Package'){
                steps{
                  sh '''
-                    cd ./microservice-kubernetes/microservice-kubernetes-demo
+                    cd ./microservice-kubernetes-demo
                    mvn clean package -DskipTests
                      cleanWs()
                      '''
