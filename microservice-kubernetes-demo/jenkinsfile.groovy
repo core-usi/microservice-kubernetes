@@ -57,38 +57,11 @@ pipeline{
                  sh '''
                     cd ./microservice-kubernetes-demo
                    mvn clean package -DskipTests
-                     cleanWs()
-                     '''
+                    cleanWs()
+                   '''
           } 
     }
-   /*        
-    stage('Build Docker Image'){
-      steps{
-        
-        sh 'docker build -t gcr.io/ford-project-319713/petclinic:${BUILD_NUMBER} . '
-    }
-    }
-       
-    stage('Push Docker Image to gcr.io'){
-    steps{
-        sh 'gcloud config set account gcr-jenkins-35@ford-project-319713.iam.gserviceaccount.com'
-        sh 'gcloud auth configure-docker'
-        sh 'docker push gcr.io/ford-project-319713/petclinic:${BUILD_NUMBER} >&1 | tee docker.txt'
-        
-             }
-     }
-    
-     
-       stage('Clean Docker images and workspace'){
-    steps{
-         sh 'docker rmi gcr.io/ford-project-319713/petclinic:${BUILD_NUMBER}'
-        cleanWs()
-             }
-     }
-         
-   */   
-         
-         
+
          
 
     }
