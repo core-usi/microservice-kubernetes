@@ -28,10 +28,16 @@ pipeline{
                     
 
                          sh '''
-                        
+                        ls
+                       echo "before clone"
                         pwd
                         git_repo="https://github.com/core-usi/petclinicApp.git"
+                        mkdir buildnumber
+                        cd buildnumber
                         git clone $git_repo
+                        echo "after clone"
+                        ls
+                       
                        
                                        
                         '''
@@ -48,9 +54,11 @@ pipeline{
          
          stage(' Maven Clean Package'){
                steps{
-
-                   sh "mvn clean package -DskipTests"
+                 sh '''
+                    cd ./microservice-kubernetes/microservice-kubernetes-demo
+                   mvn clean package -DskipTests
                      cleanWs()
+                     '''
           } 
     }
    /*        
