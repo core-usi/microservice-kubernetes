@@ -31,7 +31,7 @@ pipeline{
                         ls
                        echo "before clone"
                         pwd
-                        git_repo="https://github.com/core-usi/petclinicApp.git"
+                        git_repo="https://github.com/core-usi/microservice-kubernetes.git"
                         mkdir buildnumber
                         cd buildnumber
                         git clone $git_repo
