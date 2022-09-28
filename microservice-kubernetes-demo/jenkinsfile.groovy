@@ -57,7 +57,7 @@ pipeline{
                  sh '''
                     cd ./microservice-kubernetes-demo
                    mvn clean package -DskipTests
-                    cleanWs()
+                   
                    '''
           } 
     }
