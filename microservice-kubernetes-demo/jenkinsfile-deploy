@@ -1,1 +1,46 @@
 
+def loadValuesYaml(){
+  def valuesYaml = readYaml (file: './metadata.yaml')
+  return valuesYaml;
+}
+def repoName
+def repoURL
+def branchName
+
+pipeline{
+    agent any
+      tools {
+     
+      maven "maven3.6.3"
+      }
+    
+     environment {
+        buildnumber = "${BUILD_NUMBER}"
+        jobName    = "${env.JOB_NAME}"
+                    }
+       
+       stages{
+
+         
+         stage(' K8s Deploy'){
+               steps{
+                 sh '''
+                   ls
+                   pwd
+                   cd ./microservice-kubernetes-demo
+                   pwd
+                   mvn clean package -DskipTests
+                   
+                   '''
+              
+                 
+          } 
+    }
+       
+         
+  
+
+         
+
+    }
+}
