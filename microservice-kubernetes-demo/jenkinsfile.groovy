@@ -33,7 +33,7 @@ pipeline{
                         pwd
                         git_repo="https://github.com/core-usi/microservice-kubernetes.git"
  
-                        git clone $git_repo
+                       
                         echo "after clone"
                         ls
                        
