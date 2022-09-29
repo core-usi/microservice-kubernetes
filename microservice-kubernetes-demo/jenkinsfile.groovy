@@ -66,9 +66,12 @@ pipeline{
          stage(' Docker build and push'){
                steps{
                 withCredentials([usernamePassword(credentialsId: 'docker-sreeram', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                  sh 'cd microservice-kubernetes-demo'
+                  
                   sh 'ls'
                   sh 'pwd'
+                  sh 'cd microservice-kubernetes-demo'
+                  sh 'pwd'
+                  
                   sh 'docker login -u="${USERNAME}" -p="${PASSWORD}"'
                   sh'./docker-build.sh ${USERNAME}'
                   cleanWs()
