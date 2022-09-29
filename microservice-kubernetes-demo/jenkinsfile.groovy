@@ -59,6 +59,7 @@ pipeline{
                    mvn clean package -DskipTests
                    
                    '''
+                 cleanWs()
           } 
     }
 
