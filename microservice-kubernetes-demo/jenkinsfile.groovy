@@ -67,6 +67,8 @@ pipeline{
                steps{
                 withCredentials([usernamePassword(credentialsId: 'docker-sreeram', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                   sh 'docker login -u="${USERNAME}" -p="${PASSWORD}"'
+                  ./docker-build.sh ${USERNAME}
+                  
 
 }
                  
