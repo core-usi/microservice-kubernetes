@@ -1,3 +1,7 @@
+def loadValuesYaml(){
+  def valuesYaml = readYaml (file: './metadata.yaml')
+  return valuesYaml;
+}
 def repoName
 def repoURL
 def branchName
@@ -15,9 +19,39 @@ pipeline{
                     }
        
        stages{
-       
+        stage('SCM Checkout'){
+            steps{
+                script{
+
+                
+               
+                    
+
+                         sh '''
+                        ls
+                       echo "before clone"
+                        pwd
+                        git_repo="https://github.com/core-usi/microservice-kubernetes.git"
+ 
+                       
+                        echo "after clone"
+                        ls
+                       
+                       
+                                       
+                        '''
+                    
+                
+             
+             }
+         }
+          
+
+
+
+        } 
          
-         stage(' K8s Deploy'){
+         stage(' Maven Clean Package'){
                steps{
                  sh '''
                    ls
