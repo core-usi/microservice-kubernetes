@@ -61,7 +61,7 @@ pipeline{
                    mvn clean package -DskipTests
                    
                    '''
-                 cleanWs()
+              
                  
           } 
     }
@@ -70,14 +70,15 @@ pipeline{
          stage(' Docker build and push'){
                steps{
                 withCredentials([usernamePassword(credentialsId: 'docker-sreeram', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                 sh ''' 
+                  ls
+                  pwd
+                  cd ./microservice-kubernetes-demo
+                  pwd
                   
-                  sh 'ls'
-                  sh 'pwd'
-                  sh 'cd microservice-kubernetes-demo'
-                  sh 'pwd'
-                  
-                  sh 'docker login -u="${USERNAME}" -p="${PASSWORD}"'
-                  sh'./docker-build.sh ${USERNAME}'
+                   docker login -u="${USERNAME}" -p="${PASSWORD}"
+                   ./docker-build.sh ${USERNAME}
+                   '''
                   cleanWs()
                   
 
