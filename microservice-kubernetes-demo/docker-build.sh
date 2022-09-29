@@ -1,6 +1,6 @@
 #!/bin/sh
 
-docker build --tag=microservice-kubernetes-demo-apache apache
+docker build --tag=microservice-kubernetes-demo-apache apache 
 docker tag microservice-kubernetes-demo-apache $1/microservice-kubernetes-demo-apache:latest
 docker push $1/microservice-kubernetes-demo-apache
 
