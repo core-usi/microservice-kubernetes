@@ -32,8 +32,7 @@ pipeline{
                        echo "before clone"
                         pwd
                         git_repo="https://github.com/core-usi/microservice-kubernetes.git"
-                        mkdir ${BUILD_NUMBER}
-                        cd ${BUILD_NUMBER}
+ 
                         git clone $git_repo
                         echo "after clone"
                         ls
